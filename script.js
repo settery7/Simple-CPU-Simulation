@@ -1,4 +1,4 @@
-class SisonCPUSimulator {
+class CPUSimulator {
   constructor() {
     this.registers = {
       AC: 0, // Accumulator
@@ -515,5 +515,6 @@ class SisonCPUSimulator {
 
 // Initialize the simulator when the page loads
 document.addEventListener("DOMContentLoaded", () => {
-  new SisonCPUSimulator();
+  new 
+  CPUSimulator();
 });
