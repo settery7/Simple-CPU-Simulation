@@ -1,0 +1,324 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, rgba(26, 42, 108, 0.8), rgba(178, 31, 31, 0.8), rgba(253, 187, 45, 0.8));
+    color: #fff;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmJ5ODA2a2dlNXE5bGF6Ym9mbjZjNmgyZ2M1aHp5cDc1aTMzbXJsZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VDMHgvx8N9U7UUlczQ/giphy.gif') center/cover;
+    z-index: -2;
+    animation: backgroundLoop 20s linear infinite;
+}
+
+@keyframes backgroundLoop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.program-setup {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+.setup-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+input, select {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background: #357ae8;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+button:disabled {
+    background: #666;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.instructions-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+th {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.data-values {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.data-table th:nth-child(1),
+.data-table td:nth-child(1) {
+    width: 30%;
+    text-align: center;
+}
+
+.data-table th:nth-child(2),
+.data-table td:nth-child(2) {
+    width: 70%;
+    text-align: center;
+}
+
+.execution {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+.execution-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.execution-output {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 15px;
+    border-radius: 8px;
+    min-height: 100px;
+    font-family: 'Courier New', monospace;
+    white-space: pre-wrap;
+    overflow-y: auto;
+    max-height: 300px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cpu-registers {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.register {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.register.active {
+    background: rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 15px gold;
+    transform: scale(1.05);
+}
+
+.register-name {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.register-value {
+    font-size: 1.5rem;
+    font-family: 'Courier New', monospace;
+}
+
+.memory-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.memory-cell {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.memory-cell.active {
+    background: rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 15px gold;
+    transform: scale(1.05);
+}
+
+.memory-address {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: 5px;
+}
+
+.memory-value {
+    font-size: 1.2rem;
+    font-family: 'Courier New', monospace;
+}
+
+.instruction-set {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+.highlight {
+    color: gold;
+    font-weight: bold;
+}
+
+.current-instruction {
+    background: rgba(255, 215, 0, 0.2);
+    border-left: 4px solid gold;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.halted {
+    color: #ff6b6b;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+/* Ensure proper column ordering in all tables */
+.instructions-table th:nth-child(1),
+.instructions-table td:nth-child(1) {
+    width: 20%;
+    text-align: center;
+}
+
+.instructions-table th:nth-child(2),
+.instructions-table td:nth-child(2) {
+    width: 40%;
+    text-align: center;
+}
+
+.instructions-table th:nth-child(3),
+.instructions-table td:nth-child(3) {
+    width: 40%;
+    text-align: center;
+}
+
+/* Center align all table headers and cells */
+.instructions-table th,
+.data-table th {
+    text-align: center;
+}
+
+.instructions-table td,
+.data-table td {
+    text-align: center;
+}
+
+/* Style for data value inputs to be centered */
+.data-value {
+    text-align: center;
+    width: 80px;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nable CPU Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Simple Nable CPU Simulator</h1>
+            <p class="subtitle">Interactive CPU Simulation with Custom Instructions</p>
+        </header>
+        
+        <div class="program-setup">
+            <h2>Program Setup</h2>
+            <div class="setup-controls">
+                <label for="instruction-count">Number of Instructions:</label>
+                <input type="number" id="instruction-count" min="1" max="10" value="4">
+                <button id="generate-btn">Generate Instructions</button>
+            </div>
+            
+            <h3>Setup Instructions</h3>
+            <table class="instructions-table" id="instructions-table">
+                <thead>
+                    <tr>
+                        <th>Address</th>
+                        <th>Instruction</th>
+                        <th>Operand</th>
+                    </tr>
+                </thead>
+                <tbody id="instructions-body">
+                    <!-- Instructions will be generated here -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="data-values">
+            <h2>Data Values</h2>
+            <p>Enter data values for memory addresses used in instructions:</p>
+            <table class="data-table" id="data-table">
+                <thead>
+                    <tr>
+                        <th>Address</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="data-body">
+                    <!-- Data values will be generated here -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="execution">
+            <h2>Execution</h2>
+            <div class="execution-controls">
+                <button id="run-btn">Run Program</button>
+                <button id="step-btn">Step</button>
+                <button id="reset-btn">Reset</button>
+            </div>
+            
+            <div class="execution-output" id="output-content">
+                Program ready. Set up instructions and click Run or Step to begin execution.
+            </div>
+            
+            <h3>CPU Registers</h3>
+            <div class="cpu-registers">
+                <div class="register" id="ac">
+                    <div class="register-name">AC (Accumulator)</div>
+                    <div class="register-value">0</div>
+                </div>
+                <div class="register" id="pc">
+                    <div class="register-name">PC (Program Counter)</div>
+                    <div class="register-value">0</div>
+                </div>
+                <div class="register" id="ir">
+                    <div class="register-name">IR (Instruction Register)</div>
+                    <div class="register-value">-</div>
+                </div>
+            </div>
+            
+            <h3>Memory</h3>
+            <div class="memory-container" id="memory-container">
+                <!-- Memory cells will be generated here -->
+            </div>
+        </div>
+        
+        <div class="instruction-set">
+            <h2>Instruction Set</h2>
+            <table class="instructions-table">
+                <thead>
+                    <tr>
+                        <th>Instruction</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>LOAD X</td>
+                        <td>Load value from memory location X into AC</td>
+                    </tr>
+                    <tr>
+                        <td>STORE X</td>
+                        <td>Store value from AC into memory location X</td>
+                    </tr>
+                    <tr>
+                        <td>ADD X</td>
+                        <td>Add value from memory location X to AC</td>
+                    </tr>
+                    <tr>
+                        <td>SUB X</td>
+                        <td>Subtract value from memory location X from AC</td>
+                    </tr>
+                    <tr>
+                        <td>HLT</td>
+                        <td>Halt the program</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
